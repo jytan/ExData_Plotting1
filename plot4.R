@@ -6,6 +6,7 @@ data$DateTime <- as.POSIXlt(data$DateTime)
 req_data <- subset(data,as.Date(data$DateTime)=="2007-02-01"|as.Date(data$DateTime)=="2007-02-02")
 req_data[,3:9] <- apply(req_data[,3:9],2,as.numeric)
 
+par(cex=0.8,bg="transparent")
 png("plot4.png")
 par(mfcol=c(2,2))
 plot(req_data$DateTime,req_data$Global_active_power,type="l",xlab="",ylab="Global Active Power")

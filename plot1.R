@@ -6,6 +6,7 @@ data$DateTime <- as.POSIXlt(data$DateTime)
 req_data <- subset(data,as.Date(data$DateTime)=="2007-02-01"|as.Date(data$DateTime)=="2007-02-02")
 req_data$Global_active_power <- as.numeric(req_data$Global_active_power)
 
+par(cex=0.8,bg="transparent")
+png("plot1.png")
 hist(req_data$Global_active_power,breaks=12,col="red",xlab="Global Active Power (kilowatts)",main="Global Active Power")
-dev.copy(device=png,"plot1.png",width=480,height=480)
 dev.off()

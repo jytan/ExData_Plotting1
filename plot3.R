@@ -6,6 +6,7 @@ data$DateTime <- as.POSIXlt(data$DateTime)
 req_data <- subset(data,as.Date(data$DateTime)=="2007-02-01"|as.Date(data$DateTime)=="2007-02-02")
 req_data[,3:9] <- apply(req_data[,3:9],2,as.numeric)
 
+par(cex=0.8,bg="transparent")
 png("plot3.png")
 plot(req_data$DateTime,req_data$Sub_metering_1,type="l",xlab="",ylab="Energy sub metering")
 lines(req_data$DateTime,req_data$Sub_metering_2,col="red")

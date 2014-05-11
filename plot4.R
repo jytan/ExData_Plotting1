@@ -1,11 +1,14 @@
+# Setting the data directory
 setwd("~/Desktop/test_repo/householddata")
 
+# Reading in the data
 data <- read.csv2("household_power_consumption.txt",stringsAsFactors=F)
 data$DateTime <- as.POSIXct(paste(data$Date,data$Time,sep=" "),format="%d/%m/%Y %H:%M:%S")
 data$DateTime <- as.POSIXlt(data$DateTime)
 req_data <- subset(data,as.Date(data$DateTime)=="2007-02-01"|as.Date(data$DateTime)=="2007-02-02")
 req_data[,3:9] <- apply(req_data[,3:9],2,as.numeric)
 
+# Plotting
 par(cex=0.8,bg="transparent")
 png("plot4.png")
 par(mfcol=c(2,2))
